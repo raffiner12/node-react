@@ -36,7 +36,7 @@ userSchema.pre('save', function(next){
 
     var user = this;
 
-    if(user.isModified('password')){
+    if(user.isModified('password')){ // 비밀번호를 바꾼다면
     // 비밀번호를 암호화 시킨다.
         bcrypt.genSalt(saltRounds,function(err,salt){
             if(err) return next(err)
@@ -47,6 +47,8 @@ userSchema.pre('save', function(next){
                 next()
             })
         })
+    } else {
+        next()
     }
 })
 
