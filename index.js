@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 const mongoose = require('mongoose')
 mongoose.connect(config.mongoURI,{
-    useNewUrlParser: true, useUnifiedTopology:true, useCreateIndex: true, useFindAndModify: false
+    useNewUrlParser: true, useUnifiedTopology:true // 몽구스 6버전 이상은 usenewparser,topology, createindex, findandmodify 삭제
 }).then(() => console.log('MongoDB Connected...'))
 .catch(err => console.log(err))
 
