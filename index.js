@@ -85,4 +85,19 @@ app.get('/api/users/auth', auth, (req, res) => {
     })
 })
 
+
+// 로그아웃 Route 만들기
+app.get('/api/users/logout', auth, (req, res) => {
+    // 로그아웃 하려는 유저를 데이터 베이스에서 찾아서
+    User.findOneAndUpdate({_id: req.user._id}, 
+    // 그 유저의 토큰을 지워준다.
+    { token: "" },
+    (err, user) => {
+        if(err) return res.json({ success:false, err});
+        return res.status(200).send({
+            success: true
+        })
+    })
+})
+
 app.listen(port, () => { console.log(`Example app listening on port ${port}!`)})
