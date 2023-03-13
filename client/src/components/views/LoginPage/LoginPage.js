@@ -15,11 +15,11 @@ function LoginPage(props) {
     setEmail(event.currentTarget.value)
   }
 
-  const onPasswordHandler = () => {
+  const onPasswordHandler = (event) => {
     setPassword(event.currentTarget.value)
   }
 
-  const onSubmitHandler = () => {
+  const onSubmitHandler = (event) => {
     event.preventDefault(); // 페이지가 새로고침되지 않도록.
 
     let body = {
