@@ -1,5 +1,5 @@
 const express = require('express')
-const app = express()
+const app = express() // express함수를 이용해 app 생성
 const port = 5000
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
